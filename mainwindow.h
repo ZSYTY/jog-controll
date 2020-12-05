@@ -3,6 +3,9 @@
 
 #include <QVector>
 #include <QMainWindow>
+#include <QHBoxLayout>
+#include "jointview.h"
+#include "config.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-//    QVector<JointView> ;
+    QVector<JointView*> jointViewList;
 
 };
 #endif // MAINWINDOW_H

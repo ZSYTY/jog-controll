@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <author/>
+ <comment/>
+ <exportmacro/>
+ <class>JointView</class>
+<widget class="QWidget" name="JointView">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -78,6 +80,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <pixmapfunction/>
  <connections/>
 </ui>
+
+
