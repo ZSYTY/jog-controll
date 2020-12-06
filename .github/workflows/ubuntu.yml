@@ -17,7 +17,7 @@ jobs:
       matrix:
         os: [ubuntu-16.04,ubuntu-18.04,ubuntu-20.04]
         qt_arch: [gcc_64]
-        qt_ver: [5.12.6]
+        qt_ver: [5.14.0]
     steps:
       - name: cacheQt
         id: UbuntuCacheQt
@@ -36,7 +36,7 @@ jobs:
           echo "::add-path::$qt_Path/bin"
       - name: Install Qt
         if: steps.UbuntuCacheQt.outputs.cache-hit != 'true'
-        uses: jurplel/install-qt-action@v2.5.3
+        uses: jurplel/install-qt-action@v2.11.1
         with:
           version: ${{ matrix.qt_ver }}
           cached: ${{ steps.UbuntuCacheQt.outputs.cache-hit }}
