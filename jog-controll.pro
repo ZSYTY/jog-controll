@@ -16,12 +16,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    FeedBack.cpp \
+    RegWritePos.cpp \
+    SCServo/SCS.cpp \
+    SCServo/SCSerial.cpp \
+    SCServo/SMSBL.cpp \
+    feedbackthread.cpp \
+    jointmodel.cpp \
     jointview.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    config.h \
+    Motor_parameter.h \
+    SCServo/INST.h \
+    SCServo/SCS.h \
+    SCServo/SCSerial.h \
+    SCServo/SCServo.h \
+    SCServo/SMSBL.h \
+    feedbackthread.h \
+    jointmodel.h \
     jointview.h \
     mainwindow.h
 

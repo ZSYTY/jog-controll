@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    for (int i = 0; i < JogControll::JOINT_CNT; i++) {
-        jointViewList.push_back(new JointView());
+    for (int i = 0; i < IDN; i++) {
+        jointViewList.push_back(new JointView(i));
     }
 
     QHBoxLayout *layout = new QHBoxLayout();
@@ -15,10 +15,16 @@ MainWindow::MainWindow(QWidget *parent)
         layout->addWidget(item);
     }
     ui->centralwidget->setLayout(layout);
+    jointModel = new JointModel();
+    connect(jointModel, &JointModel::sendCurrent, this, &MainWindow::currentReceived);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::currentReceived(int id, int cur) {
+    jointViewList[id]->setCurrentValue(cur);
 }
 
