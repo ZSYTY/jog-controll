@@ -151,10 +151,10 @@ int SCSerial::readSCS(unsigned char *nDat, int nLen)
     fs_sel = select(fd+1, &fs_read, NULL, NULL, &time);
     if(fs_sel){
 		fs_sel = read(fd, nDat, nLen);
-        printf("nLen = %d fs_sel = %d\n", nLen, fs_sel);
+//        printf("nLen = %d fs_sel = %d\n", nLen, fs_sel);
         return fs_sel;
     }else{
-        printf("serial read fd read return 0\n");
+//        printf("serial read fd read return 0\n");
         return 0;
     }
 }
