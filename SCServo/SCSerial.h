@@ -14,6 +14,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/select.h>
 
 class SCSerial : public SCS
 {

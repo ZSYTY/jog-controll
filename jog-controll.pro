@@ -24,7 +24,8 @@ SOURCES += \
     jointmodel.cpp \
     jointview.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    writeposthread.cpp
 
 HEADERS += \
     Motor_parameter.h \
@@ -36,7 +37,8 @@ HEADERS += \
     feedbackthread.h \
     jointmodel.h \
     jointview.h \
-    mainwindow.h
+    mainwindow.h \
+    writeposthread.h
 
 FORMS += \
     jointview.ui \

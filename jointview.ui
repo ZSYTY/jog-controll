@@ -24,6 +24,27 @@
       </widget>
      </item>
      <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Origin</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="originValue">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="maximum">
+          <number>4096</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QLabel" name="currentLabel">
@@ -39,12 +60,15 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="currentValue">
+        <widget class="QDoubleSpinBox" name="currentValue">
          <property name="readOnly">
           <bool>true</bool>
          </property>
+         <property name="minimum">
+          <double>-100.000000000000000</double>
+         </property>
          <property name="maximum">
-          <number>999999</number>
+          <double>100.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -66,9 +90,15 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="destinationValue">
+        <widget class="QDoubleSpinBox" name="targetValue">
+         <property name="minimum">
+          <double>-100.000000000000000</double>
+         </property>
          <property name="maximum">
-          <number>999999</number>
+          <double>100.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>0.010000000000000</double>
          </property>
         </widget>
        </item>

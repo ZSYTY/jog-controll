@@ -4,6 +4,7 @@
 #include <QVector>
 #include <QMainWindow>
 #include <QHBoxLayout>
+#include <QPushButton>
 #include "jointview.h"
 #include "Motor_parameter.h"
 #include "jointmodel.h"
@@ -24,9 +25,12 @@ private:
     Ui::MainWindow *ui;
     QVector<JointView*> jointViewList;
     JointModel *jointModel;
+    QPushButton *moveHomeButton;
 
 private slots:
-    void currentReceived(int id, int cur);
+    void currentReceived(int id, double cur);
+    void originReceived(int id, int cur);
+
 
 };
 #endif // MAINWINDOW_H

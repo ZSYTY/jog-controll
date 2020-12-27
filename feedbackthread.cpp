@@ -29,13 +29,13 @@ void FeedBackThread::run()
                 Temper = sm->ReadTemper(-1);
                 Move = sm->ReadMove(-1);
                 Current = sm->ReadCurrent(-1);
-                std::cout<< "pos ="<<Pos<<std::endl;
-                std::cout<< "Speed ="<<Speed<<std::endl;
-                std::cout<< "Load ="<<Load<<std::endl;
-                std::cout<< "Voltage ="<<Voltage<<std::endl;
-                std::cout<< "Temper ="<<Temper<<std::endl;
-                std::cout<< "Move ="<<Move<<std::endl;
-                std::cout<< "Current ="<<Current<<std::endl;
+//                std::cout<< "pos ="<<Pos<<std::endl;
+//                std::cout<< "Speed ="<<Speed<<std::endl;
+//                std::cout<< "Load ="<<Load<<std::endl;
+//                std::cout<< "Voltage ="<<Voltage<<std::endl;
+//                std::cout<< "Temper ="<<Temper<<std::endl;
+//                std::cout<< "Move ="<<Move<<std::endl;
+//                std::cout<< "Current ="<<Current<<std::endl;
                 emit positionReceived(i, Pos);
                 usleep(10*1000);
             }else{
