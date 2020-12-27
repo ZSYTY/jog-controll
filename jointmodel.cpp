@@ -17,15 +17,9 @@ void JointModel::currentReceived(int id, int cur) {
     if (id >= 0 && id < IDN) {
         currentPosition[id] = cur;
         emit sendOrigin(id, cur);
-<<<<<<< HEAD
         if (id == 2 || id == 1) {
             emit sendCurrent(2, (currentPosition[1] + currentPosition[2] - BiasPos[2]) / SMSPOSTRANS);
             emit sendCurrent(1, (currentPosition[2] - BiasPos[2]) / SMSPOSTRANS / Dirction[2]);
-=======
-        if (id == 2) {
-            emit sendCurrent(id, (currentPosition[1] + currentPosition[2] - BiasPos
-                    [2]) / SMSPOSTRANS);
->>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
         } else {
             emit sendCurrent(id, (currentPosition[id] - BiasPos[id]) / SMSPOSTRANS / Dirction[id]);
         }
@@ -34,8 +28,6 @@ void JointModel::currentReceived(int id, int cur) {
 
 void JointModel::beginJog(int id, double target) {
     if (id >= 0 && id < IDN) {
-//        double target =
-<<<<<<< HEAD
 //        int targetInt = target * (id != 2 ? Dirction[id] : 1) * SMSPOSTRANS + BiasPos[id];
         if (id == 2) {
             int targetInt = target * SMSPOSTRANS + BiasPos[2] - currentPosition[2];
@@ -53,19 +45,10 @@ void JointModel::beginJog(int id, double target) {
             writePosThread->setTargetPosition(id, targetInt);
             writePosThread->setJogging(id, true);
         }
-=======
-        int targetInt = target * (id != 2 ? Dirction[id] : 1) * SMSPOSTRANS + BiasPos[id];
-        if (id == 2) {
-            targetInt -= currentPosition[1];
-        }
-        writePosThread->setTargetPosition(id, targetInt);
-        writePosThread->setJogging(id, true);
->>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
     }
 }
 
 void JointModel::endJog(int id) {
-<<<<<<< HEAD
     if (id > 0 && id < IDN) {
         if (id == 1) {
             writePosThread->setJogging(1, false);
@@ -75,10 +58,6 @@ void JointModel::endJog(int id) {
         } else {
             writePosThread->setJogging(id, false);
         }
-=======
-    if (id >= 0 && id < IDN) {
-        writePosThread->setJogging(id, false);
->>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
     }
 }
 

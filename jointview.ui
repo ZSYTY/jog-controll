@@ -34,12 +34,9 @@
        </item>
        <item>
         <widget class="QSpinBox" name="originValue">
-<<<<<<< HEAD
          <property name="readOnly">
           <bool>true</bool>
          </property>
-=======
->>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
          <property name="maximum">
           <number>4096</number>
          </property>
@@ -99,12 +96,9 @@
          </property>
          <property name="maximum">
           <double>100.000000000000000</double>
-<<<<<<< HEAD
          </property>
          <property name="singleStep">
           <double>0.010000000000000</double>
-=======
->>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
          </property>
         </widget>
        </item>
