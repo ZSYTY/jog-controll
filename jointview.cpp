@@ -6,7 +6,11 @@ JointView::JointView(int _id, QWidget *parent) :
     ui(new Ui::JointView)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
     setLabelText("Joint " + QString::number(_id + 1));
+=======
+    setLabelText("Joint " + QString::number(_id));
+>>>>>>> e2d829c5872bd609dd2c53b4d02fa86bf37e276b
     id = _id;
     connect(ui->jogButton, &QPushButton::pressed, this, &JointView::buttonPressed);
     connect(ui->jogButton, &QPushButton::clicked, this, &JointView::buttonReleased);
