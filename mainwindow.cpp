@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     for (auto item : jointViewList) {
         layout->addWidget(item);
     }
+
     ui->centralwidget->setLayout(layout);
     jointModel = new JointModel();
     connect(jointModel, &JointModel::sendCurrent, this, &MainWindow::currentReceived);
@@ -22,10 +23,15 @@ MainWindow::MainWindow(QWidget *parent)
         connect(jointViewList[i], &JointView::beginJog, jointModel, &JointModel::beginJog);
         connect(jointViewList[i], &JointView::endJog, jointModel, &JointModel::endJog);
     }
+
     moveHomeButton = new QPushButton("Move home");
     layout->addWidget(moveHomeButton);
     connect(moveHomeButton, &QPushButton::pressed, jointModel, &JointModel::startMoveHome);
     connect(moveHomeButton, &QPushButton::clicked, jointModel, &JointModel::endMoveHome);
+
+    trackButton = new QPushButton("Path tracking");
+    layout->addWidget(trackButton);
+    connect(trackButton, &QPushButton::clicked, this, &MainWindow::chooseCsv);
 }
 
 MainWindow::~MainWindow()
@@ -41,3 +47,22 @@ void MainWindow::originReceived(int id, int cur) {
     jointViewList[id]->setOriginValue(cur);
 }
 
+void MainWindow::chooseCsv() {
+    qDebug()<<"open file...";
+    QFileDialog *fileDialog = new QFileDialog(this);
+    fileDialog->setWindowTitle(tr("打开文件"));
+    fileDialog->setDirectory("~");
+    fileDialog->setNameFilter(tr("csv(*.csv)"));
+    fileDialog->setFileMode(QFileDialog::ExistingFiles);
+    fileDialog->setViewMode(QFileDialog::Detail);
+    QStringList fileNames;
+    if (fileDialog->exec())
+    {
+      fileNames = fileDialog->selectedFiles();
+    }
+    for (auto tmp : fileNames)
+    {
+      qDebug() << tmp << endl;
+    }
+    jointModel->openCsv(fileNames.first());
+}

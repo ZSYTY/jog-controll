@@ -73,3 +73,25 @@ void JointModel::endMoveHome() {
         writePosThread->setJogging(i, false);
     }
 }
+
+
+void JointModel::openCsv(QString filename) {
+    QFile file(filename);
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream textStream(&file);
+        while (! textStream.atEnd()) {
+            QStringList thetaList = textStream.readLine().split(",");
+            for (int i = 0; i < IDN && i < thetaList.size(); i++) {
+                beginJog(i, thetaList[i].toDouble());
+            }
+            usleep(200*1000);
+            // The UI is blocking
+            qDebug() << "Moving";
+        }
+        for (int i = 0; i < IDN; i++) {
+            endJog(i);
+        }
+    } else {
+        qDebug() << "Failed to open file: " << filename;
+    }
+}

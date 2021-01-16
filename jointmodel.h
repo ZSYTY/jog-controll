@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QObject>
 #include <QVector>
+#include <QFile>
 #include <iostream>
 #include "SCServo/SCServo.h"
 #include "feedbackthread.h"
@@ -36,6 +37,7 @@ public slots:
     void endJog(int id);
     void startMoveHome();
     void endMoveHome();
+    void openCsv(QString filename);
 };
 
 #endif // JOINTMODEL_H
