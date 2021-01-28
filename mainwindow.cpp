@@ -32,6 +32,10 @@ MainWindow::MainWindow(QWidget *parent)
     trackButton = new QPushButton("Path tracking");
     layout->addWidget(trackButton);
     connect(trackButton, &QPushButton::clicked, this, &MainWindow::chooseCsv);
+
+    printButton = new QPushButton("Print");
+    layout->addWidget(printButton);
+    connect(printButton, &QPushButton::clicked, this, &MainWindow::print);
 }
 
 MainWindow::~MainWindow()
@@ -65,4 +69,14 @@ void MainWindow::chooseCsv() {
       qDebug() << tmp << endl;
     }
     jointModel->openCsv(fileNames.first());
+}
+
+void MainWindow::print() {
+    for (int i = 0; i < IDN; i++) {
+        std::cout << jointViewList[i]->getCurrentValue();
+        if (i < IDN - 1) {
+            std::cout << ", ";
+        }
+    }
+    std::cout << std::endl;
 }

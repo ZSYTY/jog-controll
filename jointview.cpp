@@ -42,3 +42,7 @@ void JointView::buttonReleased() {
     qDebug() << "Button released";
     emit endJog(id);
 }
+
+double JointView::getCurrentValue() {
+    return ui->currentValue->value();
+}

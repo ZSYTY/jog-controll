@@ -36,6 +36,16 @@ void WritePosThread::setTargetPosition(int id, int pos) {
     }
 }
 
+int WritePosThread::getTargetPosition(int id) {
+    if (id >= 0 && id < IDN) {
+        return targetPosition[id];
+    }
+}
+
 void WritePosThread::setJogging(int id, bool _jogging) {
     jogging[id] = _jogging;
+}
+
+bool WritePosThread::getJogging(int id) {
+    return jogging[id];
 }

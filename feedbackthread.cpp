@@ -39,7 +39,7 @@ void FeedBackThread::run()
                 emit positionReceived(i, Pos);
                 usleep(10*1000);
             }else{
-                std::cout<< "read err ="<<i<<std::endl;
+//                std::cout<< "read err ="<<i<<std::endl;
                 usleep(10*1000);
             }
         }

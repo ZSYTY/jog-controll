@@ -19,6 +19,7 @@ public:
     void setCurrentValue(double value);
     void setOriginValue(int value);
     double getTargetValue();
+    double getCurrentValue();
 
 private:
     Ui::JointView *ui;

@@ -28,11 +28,13 @@ private:
     JointModel *jointModel;
     QPushButton *moveHomeButton;
     QPushButton *trackButton;
+    QPushButton *printButton;
 
 private slots:
     void currentReceived(int id, double cur);
     void originReceived(int id, int cur);
     void chooseCsv();
+    void print();
 
 
 };

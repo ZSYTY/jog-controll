@@ -11,7 +11,9 @@ class WritePosThread : public QThread
 public:
     WritePosThread(SMSBL *_sm, QVector<int> *_currentPosition);
     void setTargetPosition(int id, int pos);
+    int getTargetPosition(int id);
     void setJogging(int id, bool _jogging);
+    bool getJogging(int id);
 private:
     SMSBL *sm;
     QVector<int> *currentPosition;
